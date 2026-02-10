@@ -126,3 +126,10 @@ project(ZagHop LANGUAGES Fortran)
   if(STATIC)
     target_link_libraries(zaghop PRIVATE "-static")
   endif()
+
+  # force some openblas goodness (Debian)
+   find_package(BLAS REQUIRED)
+   find_package(LAPACK REQUIRED)
+   target_link_libraries(zaghop PRIVATE ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+
+
