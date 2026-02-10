@@ -1,5 +1,5 @@
 $method
-qm "python3 ../interface/run.py orca qmdir/"
+qm "python3 ../../interface/run.py orca qmdir/"
 
 $system
 nstate 3
