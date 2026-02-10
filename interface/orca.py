@@ -81,7 +81,7 @@ class Orca(interface.QMInterface):
         """ Read oscillator strengths from the log file into the data dictionary. """
         n_ex_state = self.data["nstate"] - 1
         oscill = file_utils.search_file(self.log_file,
-                                        r"VIA TRANSITION ELECTRIC DIPOLE MOMENTS",
+                                        r"ABSORPTION SPECTRUM VIA TRANSITION ELECTRIC DIPOLE MOMENTS",
                                         after=4+n_ex_state)[4:]
         oscill = file_utils.split_columns(oscill, col=3)
         self.data["oscillator_strength"] = np.array(oscill, dtype=float)
