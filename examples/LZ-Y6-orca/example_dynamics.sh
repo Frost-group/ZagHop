@@ -1,4 +1,4 @@
-rm -r qm
+rm -r qm results prevstep
 mkdir qm
 cp -a qm.inp mol.xyz qm/
 

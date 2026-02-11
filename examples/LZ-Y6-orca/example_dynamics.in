@@ -2,10 +2,10 @@ $method
 qm "python3 ../../interface/run.py orca qm/"
 
 $system
-nstate 3
-istate 2
+nstate 4 
+istate 4
 geometry geom
-velocity veloc
+velocity mb 300.0 
 
 $dynamics
 max_time 200.0

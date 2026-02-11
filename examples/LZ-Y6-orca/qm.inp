@@ -7,5 +7,6 @@ end
 %pal
  nprocs=32
 end
+%maxcore 10000 # per core 
 
 * xyzfile 0 1 mol.xyz
