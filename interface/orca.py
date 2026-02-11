@@ -108,6 +108,18 @@ class Orca(interface.QMInterface):
             file_utils.replace_inplace(self.template,
                                        r"(?i)^!(.*)engrad",
                                        "!\1engrad ")
-        file_utils.replace_inplace(self.template,
-                                   r"(?i)IROOT\s*\d*",
-                                   "IROOT " + str(self.data["iroot"] - 1))
+        iroot_orca = self.data["iroot"] - 1
+        if iroot_orca > 0:
+            n = file_utils.replace_inplace(self.template,
+                                           r"(?i)IROOT\s*\d*",
+                                           "IROOT " + str(iroot_orca))
+            if n == 0:
+                # IROOT was removed during ground state step, re-insert it.
+                file_utils.replace_inplace(self.template,
+                                           r"(?i)(NROOTS\s*\d*)",
+                                           r"\1\n  IROOT " + str(iroot_orca))
+        else:
+            # Ground state: remove IROOT so engrad gives SCF gradient.
+            file_utils.replace_inplace(self.template,
+                                       r"(?i)\s*IROOT\s*\d*\n",
+                                       "\n")
