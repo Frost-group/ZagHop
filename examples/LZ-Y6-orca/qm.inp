@@ -1,0 +1,11 @@
+! PBE0 def2-SVP engrad
+%tddft
+  NROOTS 4
+  IROOT 4
+end
+
+%pal
+ nprocs=32
+end
+
+* xyzfile 0 1 mol.xyz

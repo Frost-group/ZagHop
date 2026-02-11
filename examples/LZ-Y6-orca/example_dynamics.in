@@ -1,0 +1,22 @@
+$method
+qm "python3 ../../interface/run.py orca qm/"
+
+$system
+nstate 3
+istate 2
+geometry geom
+velocity veloc
+
+$dynamics
+max_time 200.0
+tstep 0.5
+
+$surfhop
+lz
+
+$output
+results_dir results
+buinterval 10
+
+$end
+
